@@ -16,9 +16,9 @@ function save_options() {
 // Restores select box and checkbox state using the preferences
 // stored in chrome.storage.
 function restore_options() {
-  // Use default value link = 'https://54.149.70.135/mp/index.php?'
+  // Use default value link = ''
   chrome.storage.sync.get({
-    link: 'https://54.149.70.135/mp/index.php?',
+    link: '',
   }, function(items) {
     document.getElementById('link').value = items.link;
   });

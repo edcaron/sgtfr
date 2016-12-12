@@ -17,6 +17,7 @@
     "scripts" : ["background.js"]
   },
   "permissions": [
+    "contextMenus", 
     "activeTab",    
     "http://*/",
     "https://*/",
