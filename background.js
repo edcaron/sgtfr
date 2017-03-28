@@ -15,25 +15,31 @@ chrome.browserAction.onClicked.addListener(function (tab) {
     		//Update the current url to the proxyed url
     		chrome.tabs.update(tab.id, {url: myNewUrl});
       }else{
-          alert("You have to set the proxy server first. Go to the preferences page and fill the form")
+          alert("You have to set the proxy server first. Go to the preferences page and fill the form");
       }
 
   	});
 
 });
 
-openWithProxy = function(word){
-    var query = word.linkUrl;
+openWithProxy = function(param){
+    var query = param.linkUrl;
 	  //get the proxy link stored
   	chrome.storage.sync.get({
     	link: '',
   	}, function(items) {
 
-  		  //create a new url
-    		var myNewUrl = items.link + query;
+        if(items.link != ""){
 
-    		//create a new tab with the proxyed url
-    		chrome.tabs.create({url: myNewUrl});
+    		  //create a new url
+      		var myNewUrl = items.link + query;
+
+      		//create a new tab with the proxyed url
+      		chrome.tabs.create({url: myNewUrl});
+
+        }else{
+           alert("You have to set the proxy server first. Go to the preferences page and fill the form");
+        }
 
   	});
 
