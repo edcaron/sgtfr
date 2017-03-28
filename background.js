@@ -8,7 +8,6 @@ chrome.browserAction.onClicked.addListener(function (tab) {
     	link: '',
   	}, function(items) {
 
-
       if(items.link != ""){
     		//create a new url
       	var myNewUrl = items.link + tabUrl;
@@ -30,11 +29,12 @@ openWithProxy = function(word){
     	link: '',
   	}, function(items) {
 
-  		//create a new url
+  		  //create a new url
     		var myNewUrl = items.link + query;
 
     		//create a new tab with the proxyed url
     		chrome.tabs.create({url: myNewUrl});
+
   	});
 
 };
